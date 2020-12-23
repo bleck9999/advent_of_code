@@ -20,4 +20,5 @@ def playgaem(start, until):
     return seen[until-1]
 
 
+# another 9THz solution
 print(playgaem(start, 30000000))
