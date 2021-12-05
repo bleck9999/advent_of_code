@@ -1,5 +1,11 @@
 import itertools
 
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+
+colormap = ListedColormap(["#000000", "#00ffff", "#ffff00", "#00ff00"])
+
 grid = {}
 def addTo(x, y):
     if (x,y) not in grid:
@@ -22,13 +28,12 @@ for l in open("input", 'r').read().splitlines():
         addTo(xmove if xmove else l1[0],
               ymove if ymove else l1[1])
 
-# for y in range(1, 1001):
-#     for x in range(1, 1001):
-#         if (x, y) in grid:
-#             print(grid[(x,y)], end=' ')
-#         else:
-#             print(".", end=' ')
-#     print("")
+fig, ax = plt.subplots()
+data = np.array([[grid[(x, y)] if (x, y) in grid else 0 for x in range(1, 1001)] for y in range(1, 1001)])
+psm = ax.pcolormesh(data, cmap=colormap, rasterized=True, vmin=0, vmax=3)
+fig.colorbar(psm, ax=ax)
+plt.savefig("graph.png", format="png", dpi=150)
+plt.show()
 
 positions = []
 for pos in grid:
