@@ -16,8 +16,8 @@ def addTo(x, y):
 for l in open("input", 'r').read().splitlines():
     l1, l2 = l.split(sep="->")
     # we shift positions up by one so the grid starts at 1,1 in the next line.
-    # we do this because we take movement being 0 to mean the line isnt diagonal
-    # and if we let 0 be a valid position then in the case of a line going to x,0 it would put the wrong coordinate
+    # we do this because we take movement being 0 to mean the line isnt diagonal and if we let 0 be a valid position
+    # then in the case of a line going to x,0 or 0,y it would put the wrong coordinate
     # to see how it breaks try the example input without the +1s on the below 2 lines and have a look at 6,4->2,0
     l1 = [int(x)+1 for x in l1.split(sep=',')]
     l2 = [int(x)+1 for x in l2.split(sep=',')]
