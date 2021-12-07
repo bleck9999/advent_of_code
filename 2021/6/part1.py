@@ -2,7 +2,7 @@ fish = []
 for f in open("input", 'r').read().strip().split(sep=','):
     fish.append(int(f))
 
-max_days = 80
+max_days = 256
 to_add = 0
 for d in range(max_days):
     [fish.append(9) for _ in range(to_add)]
