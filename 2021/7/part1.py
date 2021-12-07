@@ -4,7 +4,7 @@ totals = []
 for i in range(points[0], points[-1]):
     total = 0
     for p in points:
-        total += sum(x for x in range(1, abs(p-i)+1))
+        total += abs(p-i)
     totals.append(total)
 
 print(min(totals))
